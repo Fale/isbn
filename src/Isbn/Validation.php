@@ -6,9 +6,9 @@ class Validation {
 
     public static function isbn($isbn)
     {
-        if (strlen($isbn) == 13)
+        if (Check::is13($isbn))
             return Validation::isbn13($isbn);
-        if (strlen($isbn) == 10)
+        if (Check::is10($isbn))
             return Validation::isbn10($isbn);
         return false;
     }
