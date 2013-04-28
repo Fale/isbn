@@ -15,6 +15,13 @@ class Hyphens
         return $isbn;
     }
 
+    public static function fixHyphens($isbn, $s = "-")
+    {
+        $isbn = Hyphens::removeHyphens($isbn);
+        $hyphens = new Hyphens($isbn);
+        return $hyphens->addHyphens($s);
+    }
+
     public function __construct($isbn)
     {
         $this->isbn = $isbn;
