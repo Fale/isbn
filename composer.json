@@ -1,0 +1,20 @@
+{
+    "name": "fale/isbn",
+    "type": "library",
+    "description": "ISBN library",
+    "keywords": ["ISBN"],
+    "homepage": "http://github.com/fale/isbn",
+    "license": "AGPL-3.0",
+    "authors": [
+        {
+            "name": "Fabio Alessandro Locati",
+            "email": "fabiolocati@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": {"Fale": "src/"}
+    }
+}
