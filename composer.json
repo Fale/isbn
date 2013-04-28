@@ -15,6 +15,6 @@
         "php": ">=5.3.0"
     },
     "autoload": {
-        "psr-0": {"Fale": "src/"}
+        "psr-0": {"Isbn": "src/"}
     }
 }
