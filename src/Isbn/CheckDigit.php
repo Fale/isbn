@@ -6,6 +6,7 @@ class CheckDigit {
 
     public static function make($isbn)
     {
+        $isbn = Hyphens::removeHyphens($isbn);
         if (strlen($isbn) == 12 OR strlen($isbn) == 13)
             return CheckDigit::make13($isbn);
         if (strlen($isbn) == 9 OR strlen($isbn) == 10)
