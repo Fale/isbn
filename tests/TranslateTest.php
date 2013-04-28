@@ -5,12 +5,12 @@ class TranslateTest extends PHPUnit_Framework_TestCase
 
     public function testTo13()
     {
-        $this->assertEquals('9788889527191', Isbn\Translate::to13('8889527191'));
+        $this->assertEquals('9789880038273', Isbn\Translate::to13('9880038274'));
     }
 
     public function testTo10()
     {
-        $this->assertEquals('6028328227', Isbn\Translate::to10('9786028328227'));
+        $this->assertEquals('9880038274', Isbn\Translate::to10('9789880038273'));
     }
 
 }
