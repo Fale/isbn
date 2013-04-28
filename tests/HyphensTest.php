@@ -1,6 +1,6 @@
 <?php
 
-class Hyphens extends PHPUnit_Framework_TestCase
+class HyphensTest extends PHPUnit_Framework_TestCase
 {
 
     public function testRemoveHyphens()

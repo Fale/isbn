@@ -2,7 +2,7 @@
 <phpunit backupGlobals="false" verbose="true">
     <testsuites>
         <testsuite name="ISBN">
-            <directory suffix=".php">tests</directory>
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
 </phpunit>
