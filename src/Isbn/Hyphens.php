@@ -35,7 +35,7 @@ class Hyphens
     {
         if (!$chars)
             return false;
-        $val = substr($this->isbn, $this->parsed(), $chars);
+        $val = substr($this->isbn, $this->parsed($p), $chars);
         $min = substr($min, 0, $chars);
         $max = substr($max, 0, $chars);
         if ($val >= $min AND $val <= $max)
@@ -47,11 +47,12 @@ class Hyphens
             return false;
     }
 
-    private function parsed()
+    private function parsed($now = null)
     {
         $chars = 0;
-        foreach ($this->isbnSplit as $split)
-            $chars = $chars + strlen($split);
+        foreach ($this->isbnSplit as $key => $split)
+            if (!isSet($now) OR $key < $now)
+                $chars = $chars + strlen($split);
         return $chars;
     }
 
@@ -85,8 +86,7 @@ class Hyphens
         if (isSet($this->isbnSplit[0]))
             $soFar = implode('-', $this->isbnSplit);
         else
-            $doFar = "978-" . $this->isbnSplit[1];
-
+            $soFar = "978-" . $this->isbnSplit[1];
         switch ($soFar)
         {
             case '978-0':
