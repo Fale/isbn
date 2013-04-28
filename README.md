@@ -1,8 +1,20 @@
 # ISBN PHP library #
 This library is develop to give all ISBN (both ISBN-10 and ISBN-13) related tools needed by PHP developers.
 
+## Check ##
+This function allows you to verify id an ISBN code is an ISBN-10 or ISBN-13.
+Examples:
+
+    Isbn\Check::is10('888183718'); // Will return false
+    Isbn\Check::is13('9788889527191'); // Will return true
+    Isbn\Check::is13('978888952719'); // Will return false
+    Isbn\Check::identify('8881837188'); // Will return 10
+    Isbn\Check::identify('888183718'); // Will return false
+    Isbn\Check::identify('9788889527191'); // Will return 13
+    Isbn\Check::identify('978888952719'); // Will return false
+
 ## Validation ##
-This class allows you to validate ISBN-10 and ISBN-13 codes.
+This class allows you to validate ISBN-10 and ISBN-13.
 Examples:
 
     Isbn\Validation::isbn('8881837188'); // Will return true
