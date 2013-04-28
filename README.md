@@ -1,7 +1,7 @@
 # ISBN PHP library #
 This library is develop to give all ISBN (both ISBN-10 and ISBN-13) related tools needed by PHP developers.
 
-## ISBN Validation ##
+## Validation ##
 This class allows you to validate ISBN-10 and ISBN-13 codes.
 Examples:
 
@@ -14,7 +14,7 @@ Examples:
     Isbn\Validation::isbn13('9788889527191'); // Will return true
     Isbn\Validation::isbn13('9788889527190'); // Will return false
 
-## ISBN Hyphens ##
+## Hyphens ##
 This class provides simple functions to work with hyphens.
 
 ### Add Hyphens ###
@@ -32,3 +32,10 @@ Examples:
     Isbn\Hyphens::removeHyphens('0-943396-04-2'); // Will return 0943396042
     Isbn\Hyphens::removeHyphens('978 988 00 3827 3'); // Will return 9789880038273
     Isbn\Hyphens::removeHyphens('979-10-90636-07-1'); // Will return 9791090636071
+
+### CheckDigit ###
+This class allows you to calculate the check digit for ISBN-10 and ISBN-13.
+Examples:
+
+    Isbn\CheckDigit::make('888183718'); // Will return 8
+    Isbn\CheckDigit::make('978888952719'); // Will return 1
