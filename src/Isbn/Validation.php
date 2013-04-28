@@ -2,14 +2,14 @@
 
 namespace Isbn;
 
-class Check {
+class Validation {
 
     public static function isbn($isbn)
     {
         if (strlen($isbn) == 13)
-            return Check::isbn13($isbn);
+            return Validation::isbn13($isbn);
         if (strlen($isbn) == 10)
-            return Check::isbn10($isbn);
+            return Validation::isbn10($isbn);
         return false;
     }
 
