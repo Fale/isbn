@@ -20,7 +20,7 @@ class Hyphens
         $this->isbn = $isbn;
     }
 
-    public function addHyphens()
+    public function addHyphens($s = "-")
     {
         if (strlen($this->isbn) == 13)
             $this->isbnSplit[0] = substr($this->isbn, 0, 3);
@@ -28,7 +28,7 @@ class Hyphens
         $this->getRegistrantElement();
         $this->getPublicationElement();
         $this->getCheckDigit();
-        return implode('-', $this->isbnSplit);
+        return implode($s, $this->isbnSplit);
     }
 
     private function range($min, $max, $chars, $p)

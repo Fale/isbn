@@ -47,5 +47,21 @@ class HyphensTest extends PHPUnit_Framework_TestCase
         $hyphens = new Isbn\Hyphens('080442957X');
         $this->assertEquals('0-8044-2957-X', $hyphens->addHyphens());
         unset ($hyphens);
+
+        $hyphens = new Isbn\Hyphens('9791090636071');
+        $this->assertEquals('979 10 90636 07 1', $hyphens->addHyphens(' '));
+        unset ($hyphens);
+
+        $hyphens = new Isbn\Hyphens('9992158107');
+        $this->assertEquals('99921 58 10 7', $hyphens->addHyphens(' '));
+        unset ($hyphens);
+        
+        $hyphens = new Isbn\Hyphens('9789880038273');
+        $this->assertEquals('978 988 00 3827 3', $hyphens->addHyphens(' '));
+        unset ($hyphens);
+
+        $hyphens = new Isbn\Hyphens('080442957X');
+        $this->assertEquals('0 8044 2957 X', $hyphens->addHyphens(' '));
+        unset ($hyphens);
     }
 }

@@ -24,6 +24,9 @@ Examples:
     $hyphens = new Isbn\Hyphens('9791090636071');
     echo $hyphens->addHyphens(); // Will return 979-10-90636-07-1
 
+    $hyphens = new Isbn\Hyphens('9791090636071');
+    echo $hyphens->addHyphens(' '); // Will return 979 10 90636 07 1
+
 ### Remove Hyphens ###
 This function allows you to remove hyphens from the ISBN-10 and ISBN-13.
 Examples:
