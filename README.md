@@ -33,7 +33,7 @@ Examples:
     Isbn\Hyphens::removeHyphens('978 988 00 3827 3'); // Will return 9789880038273
     Isbn\Hyphens::removeHyphens('979-10-90636-07-1'); // Will return 9791090636071
 
-### CheckDigit ###
+## CheckDigit ##
 This class allows you to calculate the check digit for ISBN-10 and ISBN-13.
 Examples:
 
