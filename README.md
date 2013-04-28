@@ -17,6 +17,13 @@ Examples:
 ## ISBN Hyphens ##
 This class provides simple functions to work with hyphens.
 
+### Add Hyphens ###
+This function allows you to put correct hyphens in ISBN-10 and ISBN-13.
+Examples:
+
+    $hyphens = new Isbn\Hyphens('9791090636071');
+    echo $hyphens->addHyphens(); // Will return 979-10-90636-07-1
+
 ### Remove Hyphens ###
 This function allows you to remove hyphens from the ISBN-10 and ISBN-13.
 Examples:

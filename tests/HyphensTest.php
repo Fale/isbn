@@ -30,4 +30,9 @@ class HyphensTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('9791090636071', Isbn\Hyphens::removeHyphens('979 10 90636 07 1'));
     }
 
+    public function testAddHyphens()
+    {
+        $hyphens = new Isbn\Hyphens('9791090636071');
+        $this->assertEquals('979-10-90636-07-1', $hyphens->addHyphens());
+    }
 }
