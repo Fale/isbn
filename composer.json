@@ -2,7 +2,11 @@
     "name": "fale/isbn",
     "type": "library",
     "description": "ISBN library",
-    "keywords": ["ISBN"],
+    "keywords": [
+        "ISBN",
+        "ISBN-10",
+        "ISBN-13"
+    ],
     "homepage": "http://github.com/fale/isbn",
     "license": "AGPL-3.0",
     "authors": [
