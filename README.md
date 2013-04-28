@@ -62,3 +62,11 @@ Examples:
 
     Isbn\CheckDigit::make('888183718'); // Will return 8
     Isbn\CheckDigit::make('978888952719'); // Will return 1
+
+## Translate ##
+This class allows you to convert ISBN-10 to ISBN-13 and back.
+Examples:
+
+    Isbn\Translate::to13('8889527191'); // Will return 9788889527191
+    Isbn\Translate::to10('9786028328227'); // Will return 6028328227
+
