@@ -19,6 +19,7 @@ class CheckDigitTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals('8', Isbn\CheckDigit::make('888183718'));
         $this->assertEquals('1', Isbn\CheckDigit::make('978888952719'));
+        $this->assertFalse(Isbn\CheckDigit::make('97888895271921'));
     }
 
 }
