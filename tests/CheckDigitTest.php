@@ -1,5 +1,4 @@
 <?php
-
 class CheckDigitTest extends PHPUnit_Framework_TestCase
 {
 
@@ -7,6 +6,8 @@ class CheckDigitTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals('8', Isbn\CheckDigit::make10('888183718'));
         $this->assertEquals('8', Isbn\CheckDigit::make10('8881837188'));
+        $this->assertEquals('0', Isbn\CheckDigit::make10('711119626'));
+        $this->assertEquals('0', Isbn\CheckDigit::make10('7111196266'));
     }
 
     public function testIsbn13()
