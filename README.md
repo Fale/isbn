@@ -72,3 +72,13 @@ Examples:
     Isbn\Translate::to13('8889527191'); // Will return 9788889527191
     Isbn\Translate::to10('9786028328227'); // Will return 6028328227
 
+# Develop this library #
+If you are interested in some new features please open a bug on GitHub. If you already have a patch available, please, open a pull request. Before opening a pull request, be sure that all tests are passed.
+
+## Tests ##
+To check the tests run the following:
+
+    vendor/bin/phpunit tests
+
+from the project root folder.
+If the folder `vendor` is empty or non-existing, run `composer install` or `composer.phar install` depending on your `composer` installation.
