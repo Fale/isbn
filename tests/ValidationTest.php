@@ -22,6 +22,7 @@ class ValidationTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(Isbn\Validation::isbn('9788889527191'));
         $this->assertFalse(Isbn\Validation::isbn('9788889527190'));
         $this->assertFalse(Isbn\Validation::isbn('97888895271910'));
+        $this->assertFalse(Isbn\Validation::isbn('biopsychology'));
     }
 
 }
