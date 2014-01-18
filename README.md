@@ -1,5 +1,5 @@
 # ISBN PHP library #
-This library is develop to give all ISBN (both ISBN-10 and ISBN-13) related tools needed by PHP developers.
+This library is develop to provide all tools needed to handle ISBN (both ISBN-10 and ISBN-13) codes to PHP developers.
 
 ## Check ##
 This function allows you to verify if an ISBN code is an ISBN-10 or ISBN-13. This does not verifies if the ISBN code is valid. To check if the ISBN code is valid, you can use the `Validation` class.
@@ -72,3 +72,5 @@ Examples:
     Isbn\Translate::to13('8889527191'); // Will return 9788889527191
     Isbn\Translate::to10('9786028328227'); // Will return 6028328227
 
+## Missing functions ##
+Are you interested in a ISBN related function that is not available? Please, open a bug request and explain the function you would like to have and we'll evaluate and develop the function for you :).
