@@ -17,6 +17,8 @@ class Validation {
     {
         if (strlen($isbn) != 10)
             return false;
+        if (!preg_match("/\d{9}[0-9xX]/i",$isbn))
+            return false;
         $check = 0;
         for ($i = 0; $i < 10; $i++)
             if ($isbn[$i] == "X")
@@ -29,6 +31,8 @@ class Validation {
     public static function isbn13($isbn)
     {
         if (strlen($isbn) != 13)
+            return false;
+        if (!preg_match("/\d{13}/i",$isbn))
             return false;
         $check = 0;
         for ($i = 0; $i < 13; $i+=2)
