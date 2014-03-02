@@ -1,0 +1,15 @@
+language: php
+
+php:
+    - 5.3
+    - 5.4
+    - 5.5
+    - hhvm
+
+before_script:
+    - composer install --dev --prefer-source
+    - git config --global user.name travis-ci
+    - git config --global user.email travis@example.com
+
+script:
+    - vendor/bin/phpunit
