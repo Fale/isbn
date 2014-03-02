@@ -24,7 +24,7 @@ class Hyphens
     public function addHyphens($isbn, $s = "-")
     {
         $this->isbn = $isbn;
-        $this->isbnSplit = [];
+        $this->isbnSplit = Array();
         
         if (strlen($this->isbn) == 13)
             $this->isbnSplit[0] = substr($this->isbn, 0, 3);
