@@ -8,29 +8,27 @@ class Hyphens
     private $isbn;
     private $isbnSplit = Array();
 
-    public static function removeHyphens($isbn)
+    public function removeHyphens($isbn)
     {
         $isbn = str_replace(" ","",$isbn);
         $isbn = str_replace("-","",$isbn);
         return $isbn;
     }
 
-    public static function fixHyphens($isbn, $s = "-")
+    public function fixHyphens($isbn, $s = "-")
     {
-        $isbn = Hyphens::removeHyphens($isbn);
-        $hyphens = new Hyphens($isbn);
-        return $hyphens->addHyphens($s);
+        $isbn = $this->removeHyphens($isbn);
+        return $this->addHyphens($isbn, $s);
     }
 
-    public function __construct($isbn)
+    public function addHyphens($isbn, $s = "-")
     {
         $this->isbn = $isbn;
-    }
-
-    public function addHyphens($s = "-")
-    {
+        $this->isbnSplit = [];
+        
         if (strlen($this->isbn) == 13)
             $this->isbnSplit[0] = substr($this->isbn, 0, 3);
+        
         $this->getRegistrationGroupElement();
         $this->getRegistrantElement();
         $this->getPublicationElement();

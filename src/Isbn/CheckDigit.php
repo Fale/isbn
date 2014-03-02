@@ -4,17 +4,23 @@ namespace Isbn;
 
 class CheckDigit {
 
-    public static function make($isbn)
+    private $hyphens;
+    
+    public function __construct(Hyphens $hyphens) {
+        $this->hyphens = $hyphens;
+    }
+
+    public function make($isbn)
     {
-        $isbn = Hyphens::removeHyphens($isbn);
+        $isbn = $this->hyphens->removeHyphens($isbn);
         if (strlen($isbn) == 12 OR strlen($isbn) == 13)
-            return CheckDigit::make13($isbn);
+            return $this->make13($isbn);
         if (strlen($isbn) == 9 OR strlen($isbn) == 10)
-            return CheckDigit::make10($isbn);
+            return $this->make10($isbn);
         return false;
     }
 
-    public static function make10($isbn)
+    public function make10($isbn)
     {
         if (strlen($isbn) < 9 OR strlen($isbn) > 10)
             return false;
@@ -33,7 +39,7 @@ class CheckDigit {
             return $check;
     }
 
-    public static function make13($isbn)
+    public function make13($isbn)
     {
         if (strlen($isbn) < 12 OR strlen($isbn) > 13)
             return false;

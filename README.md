@@ -1,30 +1,33 @@
-# ISBN PHP library [![Build Status](https://travis-ci.org/Fale/isbn.png?branch=master)](https://travis-ci.org/Fale/isbn) #
+# ISBN PHP library #
 This library is develop to provide all tools needed to handle ISBN (both ISBN-10 and ISBN-13) codes to PHP developers.
+
+## Initialization ##
+    $isbn = new Isbn\Isbn();
 
 ## Check ##
 This function allows you to verify if an ISBN code is an ISBN-10 or ISBN-13. This does not verifies if the ISBN code is valid. To check if the ISBN code is valid, you can use the `Validation` class.
 Examples:
 
-    Isbn\Check::is10('888183718'); // Will return false
-    Isbn\Check::is13('9788889527191'); // Will return true
-    Isbn\Check::is13('978888952719'); // Will return false
-    Isbn\Check::identify('8881837188'); // Will return 10
-    Isbn\Check::identify('888183718'); // Will return false
-    Isbn\Check::identify('9788889527191'); // Will return 13
-    Isbn\Check::identify('978888952719'); // Will return false
+    $isbn->check->is10('888183718'); // Will return false
+    $isbn->check->is13('9788889527191'); // Will return true
+    $isbn->check->is13('978888952719'); // Will return false
+    $isbn->check->identify('8881837188'); // Will return 10
+    $isbn->check->identify('888183718'); // Will return false
+    $isbn->check->identify('9788889527191'); // Will return 13
+    $isbn->check->identify('978888952719'); // Will return false
 
 ## Validation ##
 This class allows you to validate ISBN-10 and ISBN-13.
 Examples:
 
-    Isbn\Validation::isbn('8881837188'); // Will return true
-    Isbn\Validation::isbn('8881837187'); // Will return false
-    Isbn\Validation::isbn('9788889527191'); // Will return true
-    Isbn\Validation::isbn('9788889527190'); // Will return false
-    Isbn\Validation::isbn10('8881837188'); // Will return true
-    Isbn\Validation::isbn10('8881837187'); // Will return false
-    Isbn\Validation::isbn13('9788889527191'); // Will return true
-    Isbn\Validation::isbn13('9788889527190'); // Will return false
+    $isbn->validation->isbn('8881837188'); // Will return true
+    $isbn->validation->isbn('8881837187'); // Will return false
+    $isbn->validation->isbn('9788889527191'); // Will return true
+    $isbn->validation->isbn('9788889527190'); // Will return false
+    $isbn->validation->isbn10('8881837188'); // Will return true
+    $isbn->validation->isbn10('8881837187'); // Will return false
+    $isbn->validation->isbn13('9788889527191'); // Will return true
+    $isbn->validation->isbn13('9788889527190'); // Will return false
 
 ## Hyphens ##
 This class provides simple functions to work with hyphens.
@@ -33,44 +36,42 @@ This class provides simple functions to work with hyphens.
 This function allows you to put correct hyphens in ISBN-10 and ISBN-13.
 Examples:
 
-    $hyphens = new Isbn\Hyphens('9791090636071');
-    echo $hyphens->addHyphens(); // Will return 979-10-90636-07-1
+    echo $isbn->hyphens->addHyphens('9791090636071'); // Will return 979-10-90636-07-1
 
-    $hyphens = new Isbn\Hyphens('9791090636071');
-    echo $hyphens->addHyphens(' '); // Will return 979 10 90636 07 1
+    echo $hyphens->addHyphens('9791090636071', ' '); // Will return 979 10 90636 07 1
 
 ### Remove Hyphens ###
 This function allows you to remove hyphens from the ISBN-10 and ISBN-13.
 Examples:
 
-    Isbn\Hyphens::removeHyphens('85 359 0277 5'); // Will return 8535902775
-    Isbn\Hyphens::removeHyphens('0-943396-04-2'); // Will return 0943396042
-    Isbn\Hyphens::removeHyphens('978 988 00 3827 3'); // Will return 9789880038273
-    Isbn\Hyphens::removeHyphens('979-10-90636-07-1'); // Will return 9791090636071
+    $isbn->hyphens->removeHyphens('85 359 0277 5'); // Will return 8535902775
+    $isbn->hyphens->removeHyphens('0-943396-04-2'); // Will return 0943396042
+    $isbn->hyphens->removeHyphens('978 988 00 3827 3'); // Will return 9789880038273
+    $isbn->hyphens->removeHyphens('979-10-90636-07-1'); // Will return 9791090636071
 
 ### Fix Hyphens ###
 This function allows you to fix hyphens in ISBN-10 and ISBN-13
 
-    Isbn\Hyphens::fixHyphens('85 35902 77 5', ' '); // Will return 85 359 0277 5
-    Isbn\Hyphens::fixHyphens('0 943 3960 42'); // Will return 0-943396-04-2
-    Isbn\Hyphens::fixHyphens('978 988 003827 3', ' '); // Will return 978 988 00 3827 3
-    Isbn\Hyphens::fixHyphens('979-10906-36-07-1'); // Will return 979-10-90636-07-1
+    $isbn->hyphens->fixHyphens('85 35902 77 5', ' '); // Will return 85 359 0277 5
+    $isbn->hyphens->fixHyphens('0 943 3960 42'); // Will return 0-943396-04-2
+    $isbn->hyphens->fixHyphens('978 988 003827 3', ' '); // Will return 978 988 00 3827 3
+    $isbn->hyphens->fixHyphens('979-10906-36-07-1'); // Will return 979-10-90636-07-1
 
 ## CheckDigit ##
 This class allows you to calculate the check digit for ISBN-10 and ISBN-13.
 Examples:
 
-    Isbn\CheckDigit::make('888183718'); // Will return 8
-    Isbn\CheckDigit::make('978888952719'); // Will return 1
-    Isbn\CheckDigit::make10('888183718'); // Will return 8
-    Isbn\CheckDigit::make13('978888952719'); // Will return 1
+    $isbn->checkDigit->make('888183718'); // Will return 8
+    $isbn->checkDigit->make('978888952719'); // Will return 1
+    $isbn->checkDigit->make10('888183718'); // Will return 8
+    $isbn->checkDigit->make13('978888952719'); // Will return 1
 
 ## Translate ##
 This class allows you to convert ISBN-10 to ISBN-13 and back.
 Examples:
 
-    Isbn\Translate::to13('8889527191'); // Will return 9788889527191
-    Isbn\Translate::to10('9786028328227'); // Will return 6028328227
+    $isbn->translate->to13('8889527191'); // Will return 9788889527191
+    $isbn->translate->to10('9786028328227'); // Will return 6028328227
 
 # Develop this library #
 If you are interested in some new features please open a bug on GitHub. If you already have a patch available, please, open a pull request. Before opening a pull request, be sure that all tests are passed.

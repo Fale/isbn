@@ -3,30 +3,35 @@
 namespace Isbn;
 
 class Check {
+    
+    private $hyphens;
+    
+    public function __construct(Hyphens $hyphens) {
+        $this->hyphens = $hyphens;
+    }
 
-    public static function identify($isbn)
+    public function identify($isbn)
     {
-        if (Check::is10($isbn))
+        if ($this->is10($isbn))
             return 10;
-        if (Check::is13($isbn))
+        if ($this->is13($isbn))
             return 13;
         return false;
     }
 
-    public static function is10($isbn)
+    public function is10($isbn)
     {
-        $isbn = Hyphens::removeHyphens($isbn);
+        $isbn = $this->hyphens->removeHyphens($isbn);
         if (strlen($isbn) == 10)
             return true;
         return false;
     }
 
-    public static function is13($isbn)
+    public function is13($isbn)
     {
-        $isbn = Hyphens::removeHyphens($isbn);
+        $isbn = $this->hyphens->removeHyphens($isbn);
         if (strlen($isbn) == 13)
             return true;
         return false;
     }
-
 }

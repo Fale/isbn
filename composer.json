@@ -7,7 +7,7 @@
         "ISBN-10",
         "ISBN-13"
     ],
-    "homepage": "http://github.com/fale/isbn",
+    "homepage": "http://github.com/mejtad/isbn",
     "license": "AGPL-3.0",
     "authors": [
         {
@@ -15,6 +15,12 @@
             "email": "fabiolocati@gmail.com",
             "role": "lead",
             "homepage": "http://fabiolocati.com"
+        },
+        {
+            "name": "Daniel Mejta",
+            "email": "daniel@mejta.net",
+            "role": "lead",
+            "homepage": "http://mejta.net"
         }
     ],
     "require": {

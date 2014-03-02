@@ -3,19 +3,27 @@
 namespace Isbn;
 
 class Validation {
+    
+    private $check;
+    private $hyphens;
 
-    public static function isbn($isbn)
+    public function __construct(Check $check, Hyphens $hyphens) {
+        $this->check = $check;
+        $this->hyphens = $hyphens;
+    }
+
+    public function isbn($isbn)
     {
-        if (Check::is13($isbn))
-            return Validation::isbn13($isbn);
-        if (Check::is10($isbn))
-            return Validation::isbn10($isbn);
+        if ($this->check->is13($isbn))
+            return $this->isbn13($isbn);
+        if ($this->check->is10($isbn))
+            return $this->isbn10($isbn);
         return false;
     }
 
-    public static function isbn10($isbn)
+    public function isbn10($isbn)
     {
-        $isbn = Hyphens::removeHyphens($isbn);
+        $isbn = $this->hyphens->removeHyphens($isbn);
         if (strlen($isbn) != 10)
             return false;
         if (!preg_match("/\d{9}[0-9xX]/i",$isbn))
@@ -29,9 +37,9 @@ class Validation {
         return $check % 11 == 0;
     }
 
-    public static function isbn13($isbn)
+    public function isbn13($isbn)
     {
-        $isbn = Hyphens::removeHyphens($isbn);
+        $isbn = $this->hyphens->removeHyphens($isbn);
         if (strlen($isbn) != 13)
             return false;
         if (!preg_match("/\d{13}/i",$isbn))
