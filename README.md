@@ -1,4 +1,4 @@
-# ISBN PHP library #
+# ISBN PHP library [![Build Status](https://travis-ci.org/Fale/isbn.png?branch=1.x)](https://travis-ci.org/Fale/isbn) #
 This library is develop to provide all tools needed to handle ISBN (both ISBN-10 and ISBN-13) codes to PHP developers.
 
 ## Check ##
