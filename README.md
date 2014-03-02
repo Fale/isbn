@@ -1,6 +1,9 @@
 # ISBN PHP library [![Build Status](https://travis-ci.org/Fale/isbn.png?branch=master)](https://travis-ci.org/Fale/isbn) #
 This library is develop to provide all tools needed to handle ISBN (both ISBN-10 and ISBN-13) codes to PHP developers.
 
+## IMPORTANT NOTICE ##
+`dev-master` is now pretty different from the **1.x** version. If you want to stay with version **1.x**, please use `1.0.0` or `1.0.x-dev` or `1.x-dev`.
+
 ## Initialization ##
     $isbn = new Isbn\Isbn();
 
