@@ -1,5 +1,5 @@
 {
-    "name": "fale/isbn",
+    "name": "mejta/isbn",
     "type": "library",
     "description": "ISBN library",
     "keywords": [
@@ -7,7 +7,7 @@
         "ISBN-10",
         "ISBN-13"
     ],
-    "homepage": "http://github.com/mejtad/isbn",
+    "homepage": "http://github.com/dmejta/isbn",
     "license": "AGPL-3.0",
     "authors": [
         {
@@ -19,7 +19,6 @@
         {
             "name": "Daniel Mejta",
             "email": "daniel@mejta.net",
-            "role": "lead",
             "homepage": "http://mejta.net"
         }
     ],
