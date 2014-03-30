@@ -15,6 +15,7 @@ class Validation {
 
     public static function isbn10($isbn)
     {
+        $isbn = Hyphens::removeHyphens($isbn);
         if (strlen($isbn) != 10)
             return false;
         if (!preg_match("/\d{9}[0-9xX]/i",$isbn))
@@ -30,6 +31,7 @@ class Validation {
 
     public static function isbn13($isbn)
     {
+        $isbn = Hyphens::removeHyphens($isbn);
         if (strlen($isbn) != 13)
             return false;
         if (!preg_match("/\d{13}/i",$isbn))
