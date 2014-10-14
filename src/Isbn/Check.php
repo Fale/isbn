@@ -1,37 +1,74 @@
 <?php
-
+/**
+ * Check
+ *
+ * @author Fabio Alessandro Locati <fabiolocati@gmail.com>
+ * @author Wenzel Pünter <wenzel@phelix.me>
+ * @author Daniel Mejta
+ * @version 2.0.0
+ * @package ISBN
+*/
 namespace Isbn;
 
-class Check {
-    
+/**
+ * Check
+*/
+class Check
+{
+    /**
+     * Hyphens
+     *
+     * @var Hyphens
+    */
     private $hyphens;
     
-    public function __construct(Hyphens $hyphens) {
+    /**
+     * Constructor
+     *
+     * @param Hyphens $hyphens
+    */
+    public function __construct(Hyphens $hyphens)
+    {
         $this->hyphens = $hyphens;
     }
 
+    /**
+     * Identifies the ISBN format and returns the corresponding
+     * number or false if no pattern matches.
+     *
+     * @param string
+     * @return int|false
+    */
     public function identify($isbn)
     {
-        if ($this->is10($isbn))
+        if($this->is10($isbn) === true) {
             return 10;
-        if ($this->is13($isbn))
-            return 13;
-        return false;
+        }
+        
+        return ($this->is13($isbn) === true ? 13 : false);
     }
 
+    /**
+     * Checks whether $isbn matches the ISBN-10 format.
+     *
+     * @param string $isbn
+     * @return boolean
+    */
     public function is10($isbn)
     {
         $isbn = $this->hyphens->removeHyphens($isbn);
-        if (strlen($isbn) == 10)
-            return true;
-        return false;
+        return (strlen($isbn) == 10);
     }
 
+    /**
+     * Checks whether $isbn matches the ISBN-13 format.
+     *
+     * @param string $isbn
+     * @return boolean
+    */
     public function is13($isbn)
     {
         $isbn = $this->hyphens->removeHyphens($isbn);
-        if (strlen($isbn) == 13)
-            return true;
-        return false;
+        return (strlen($isbn) === 13);
     }
 }

@@ -1,70 +1,135 @@
 <?php
-
+/**
+ * Hyphens
+ *
+ * @author Fabio Alessandro Locati <fabiolocati@gmail.com>
+ * @author Wenzel Pünter <wenzel@phelix.me>
+ * @author Daniel Mejta
+ * @version 2.0.0
+ * @package ISBN
+*/
 namespace Isbn;
 
+/**
+ * Hyphens
+*/
 class Hyphens
 {
-
+    /**
+     * ISBN
+     *
+     * @var string
+    */
     private $isbn;
-    private $isbnSplit = Array();
 
+    /**
+     * ISBN (splitted)
+     *
+     * @var array
+    */
+    private $isbnSplit = array();
+
+    /**
+     * Remove Hyphens
+     *
+     * @param string $isbn
+     * @return string
+    */
     public function removeHyphens($isbn)
     {
-        $isbn = str_replace(" ","",$isbn);
-        $isbn = str_replace("-","",$isbn);
+        $isbn = str_replace(" ", "", $isbn);
+        $isbn = str_replace("-", "", $isbn);
         return $isbn;
     }
 
-    public function fixHyphens($isbn, $s = "-")
+    /**
+     * Fix Hypens
+     *
+     * @param string $isbn
+     * @param string $char
+     * @return string
+    */
+    public function fixHyphens($isbn, $char = "-")
     {
         $isbn = $this->removeHyphens($isbn);
-        return $this->addHyphens($isbn, $s);
+        return $this->addHyphens($isbn, $char);
     }
 
-    public function addHyphens($isbn, $s = "-")
+    /**
+     * Add Hypens
+     *
+     * @param string $isbn
+     * @param string $char
+    */
+    public function addHyphens($isbn, $char = "-")
     {
         $this->isbn = $isbn;
         $this->isbnSplit = Array();
         
-        if (strlen($this->isbn) == 13)
+        if (strlen($this->isbn) == 13) {
             $this->isbnSplit[0] = substr($this->isbn, 0, 3);
+        }
         
         $this->getRegistrationGroupElement();
         $this->getRegistrantElement();
         $this->getPublicationElement();
         $this->getCheckDigit();
-        return implode($s, $this->isbnSplit);
+        return implode($char, $this->isbnSplit);
     }
 
+    /**
+     * Range
+     *
+     * @param int $min
+     * @param int $max
+     * @param int $chars
+     * @param int $p
+     * @return boolean
+     */
     private function range($min, $max, $chars, $p)
     {
-        if (!$chars)
+        if (!$chars) {
             return false;
+        }
+
         $val = substr($this->isbn, $this->parsed($p), $chars);
         $min = substr($min, 0, $chars);
         $max = substr($max, 0, $chars);
-        if ($val >= $min AND $val <= $max)
-        {
+
+        if ($val >= $min AND $val <= $max) {
             $this->isbnSplit[$p] = $val;
             return true;
-        }
-        else
+        } else {
             return false;
+        }
     }
 
+    /**
+     * Get Parsed Length
+     *
+     * @param null|int $now
+     * @return int
+    */
     private function parsed($now = null)
     {
         $chars = 0;
-        foreach ($this->isbnSplit as $key => $split)
-            if (!isSet($now) OR $key < $now)
+        foreach ($this->isbnSplit as $key => $split) {
+            if (isset($now) === false or $key < $now) {
                 $chars = $chars + strlen($split);
+            }
+        }
+
         return $chars;
     }
 
+    /**
+     * Get Registration Group Element
+     * 
+     * @return boolean
+    */
     private function getRegistrationGroupElement()
     {
-        if (!isSet($this->isbnSplit[0]) OR $this->isbnSplit[0] == '978')
-        {
+        if (isset($this->isbnSplit[0]) === false or $this->isbnSplit[0] === '978') {
             $this->range(0000000, 5999999, 1, 1);
             $this->range(6000000, 6499999, 3, 1);
             $this->range(6500000, 6999999, 0, 1);
@@ -74,26 +139,28 @@ class Hyphens
             $this->range(9900000, 9989999, 4, 1);
             $this->range(9990000, 9999999, 5, 1);
         }
-        if (isSet($this->isbnSplit[0]) AND $this->isbnSplit[0] == '979')
-        {
+
+        if (isset($this->isbnSplit[0]) === true and $this->isbnSplit[0] === '979') {
             $this->range(0000000, 0999999, 0, 1);
             $this->range(1000000, 1199999, 2, 1);
             $this->range(1200000, 9999999, 0, 1);
         }
-        if (isSet($this->isbnSplit[1]))
-            return true;
 
-        return false;
+        return (isset($this->isbnSplit[1]));
     }
 
+    /**
+     * Get Registrant Element
+    */
     private function getRegistrantElement()
     {
-        if (isSet($this->isbnSplit[0]))
+        if (isset($this->isbnSplit[0]) === true) {
             $soFar = implode('-', $this->isbnSplit);
-        else
-            $soFar = "978-" . $this->isbnSplit[1];
-        switch ($soFar)
-        {
+        } else {
+            $soFar = "978-".$this->isbnSplit[1];
+        }
+
+        switch ($soFar) {
             case '978-0':
                 $this->range(0000000, 1999999, 2, 2);
                 $this->range(2000000, 6999999, 3, 2);
@@ -1563,11 +1630,17 @@ class Hyphens
         }
     }
 
+    /**
+     * Get Publication Element
+    */
     private function getPublicationElement()
     {
         $this->isbnSplit[3] = substr($this->isbn, $this->parsed(), -1);
     }
 
+    /**
+     * Get Check Digit
+    */
     private function getCheckDigit()
     {
         $this->isbnSplit[4] = substr($this->isbn, -1);
