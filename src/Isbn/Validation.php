@@ -82,7 +82,7 @@ class Validation
                 $check += intval($isbn[$i]) * intval(10 - $i);
             }
         }
-        return (bool)$check % 11 == 0;
+        return $check % 11 == 0;
     }
 
     /**
@@ -110,6 +110,6 @@ class Validation
         for ($i = 1; $i < 12; $i += 2) {
             $check += 3 * substr($isbn, $i, 1);
         }
-        return (bool)$check % 10 == 0;
+        return $check % 10 == 0;
     }
 }
