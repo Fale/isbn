@@ -96,7 +96,7 @@ class Hyphens
         $min = substr($min, 0, $chars);
         $max = substr($max, 0, $chars);
 
-        if ($val >= $min AND $val <= $max) {
+        if ($val >= $min and $val <= $max) {
             $this->isbnSplit[$p] = $val;
             return true;
         } else {
