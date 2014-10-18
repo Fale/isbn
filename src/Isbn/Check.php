@@ -4,7 +4,7 @@
  *
  * @author Fabio Alessandro Locati <fabiolocati@gmail.com>
  * @author Wenzel Pünter <wenzel@phelix.me>
- * @author Daniel Mejta
+ * @author Daniel Mejta <daniel@mejta.net>
  * @version 2.0.0
  * @package ISBN
 */
@@ -57,7 +57,7 @@ class Check
     public function is10($isbn)
     {
         $isbn = $this->hyphens->removeHyphens($isbn);
-        return (strlen($isbn) == 10);
+        return (strlen($isbn) === 10);
     }
 
     /**

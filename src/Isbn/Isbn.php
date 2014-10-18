@@ -3,7 +3,7 @@
  * ISBN
  *
  * @author Wenzel Pünter <wenzel@phelix.me>
- * @author Daniel Mejta
+ * @author Daniel Mejta <daniel@mejta.net>
  * @version 2.0.0
  * @package ISBN
 */

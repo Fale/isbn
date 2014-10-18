@@ -4,7 +4,7 @@
  *
  * @author Fabio Alessandro Locati <fabiolocati@gmail.com>
  * @author Wenzel Pünter <wenzel@phelix.me>
- * @author Daniel Mejta
+ * @author Daniel Mejta <daniel@mejta.net>
  * @version 2.0.0
  * @package ISBN
 */
@@ -76,13 +76,13 @@ class Validation
         //Verify checksum
         $check = 0;
         for ($i = 0; $i < 10; $i++) {
-            if ($isbn[$i] == "X") {
+            if ($isbn[$i] === "X") {
                 $check += 10 * intval(10 - $i);
             } else {
                 $check += intval($isbn[$i]) * intval(10 - $i);
             }
         }
-        return $check % 11 == 0;
+        return $check % 11 === 0;
     }
 
     /**
@@ -110,6 +110,6 @@ class Validation
         for ($i = 1; $i < 12; $i += 2) {
             $check += 3 * substr($isbn, $i, 1);
         }
-        return $check % 10 == 0;
+        return $check % 10 === 0;
     }
 }

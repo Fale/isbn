@@ -4,7 +4,7 @@
  *
  * @author Fabio Alessandro Locati <fabiolocati@gmail.com>
  * @author Wenzel Pünter <wenzel@phelix.me>
- * @author Daniel Mejta
+ * @author Daniel Mejta <daniel@mejta.net>
  * @version 2.0.0
  * @package ISBN
 */
@@ -66,7 +66,7 @@ class Hyphens
         $this->isbn = $isbn;
         $this->isbnSplit = Array();
         
-        if (strlen($this->isbn) == 13) {
+        if (strlen($this->isbn) === 13) {
             $this->isbnSplit[0] = substr($this->isbn, 0, 3);
         }
         
