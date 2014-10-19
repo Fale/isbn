@@ -1,8 +1,18 @@
 <?php
-
+/**
+ * Hyphens Test
+ *
+ * @author Fabio Alessandro Locati <fabiolocati@gmail.com>
+ * @author Wenzel Pünter <wenzel@phelix.me>
+ * @author Daniel Mejta <daniel@mejta.net>
+ * @version 2.0.0
+ * @package ISBN
+*/
 class HyphensTest extends PHPUnit_Framework_TestCase
 {
-
+    /**
+     * Test Remove Hyphens
+    */
     public function testRemoveHyphens()
     {
         $isbn = new Isbn\Isbn();
@@ -31,6 +41,9 @@ class HyphensTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('9791090636071', $isbn->hyphens->removeHyphens('979 10 90636 07 1'));
     }
 
+    /**
+     * Test Fix Hyphens
+    */
     public function testFixHyphens()
     {
         $isbn = new Isbn\Isbn();
@@ -45,6 +58,9 @@ class HyphensTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('9786017151133', $isbn->hyphens->removeHyphens('978 601 715113  3'));
     }
 
+    /**
+     * Test Add Hyphens
+    */
     public function testAddHyphens()
     {
         $isbn = new Isbn\Isbn();
