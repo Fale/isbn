@@ -42,8 +42,8 @@ class Hyphens
             throw new Exception('Invalid parameter type.');
         }
 
-        $isbn = str_replace(" ", "", $isbn);
-        $isbn = str_replace("-", "", $isbn);
+        $isbn = str_replace(' ', '', $isbn);
+        $isbn = str_replace('-', '', $isbn);
         return $isbn;
     }
 
@@ -54,7 +54,7 @@ class Hyphens
      * @param string $char
      * @return string
     */
-    public function fixHyphens($isbn, $char = "-")
+    public function fixHyphens($isbn, $char = '-')
     {
         $isbn = $this->removeHyphens($isbn);
         return $this->addHyphens($isbn, $char);
@@ -67,7 +67,7 @@ class Hyphens
      * @param string $char
      * @throws Exception
     */
-    public function addHyphens($isbn, $char = "-")
+    public function addHyphens($isbn, $char = '-')
     {
         if(is_string($isbn) === false ||
             is_string($char) === false) {
@@ -168,7 +168,7 @@ class Hyphens
         if (isset($this->isbnSplit[0]) === true) {
             $soFar = implode('-', $this->isbnSplit);
         } else {
-            $soFar = "978-".$this->isbnSplit[1];
+            $soFar = '978-'.$this->isbnSplit[1];
         }
 
         switch ($soFar) {

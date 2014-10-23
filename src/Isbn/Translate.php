@@ -71,9 +71,9 @@ class Translate
         $isbn = substr($isbn, 0, -1);
 
         if (strlen($isbn) > 9) {
-            $isbn = "978-".$isbn;
+            $isbn = '978-'.$isbn;
         } else {
-            $isbn = "978".$isbn;
+            $isbn = '978'.$isbn;
         }
 
         return $isbn.$this->checkDigit->make($isbn);

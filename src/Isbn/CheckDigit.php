@@ -75,7 +75,7 @@ class CheckDigit
         //Calculate check digit
         $check = 0;
         for ($i = 0; $i < 9; $i++) {
-            if ($isbn[$i] === "X") {
+            if ($isbn[$i] === 'X') {
                 $check += 10 * intval(10 - $i);
             } else {
                 $check += intval($isbn[$i]) * intval(10 - $i);
