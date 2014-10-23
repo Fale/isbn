@@ -61,9 +61,14 @@ class Validation
      *
      * @param string $isbn
      * @return boolean
+     * @throws Exception
     */
     public function isbn10($isbn)
     {
+        if(is_string($isbn) === false) {
+            throw new Exception('Invalid parameter type.');
+        }
+
         //Verify ISBN-10 scheme
         $isbn = $this->hyphens->removeHyphens($isbn);
         if (strlen($isbn) != 10) {
@@ -90,9 +95,14 @@ class Validation
      *
      * @param string $isbn
      * @return boolean
+     * @throws Exception
     */
     public function isbn13($isbn)
     {
+        if(is_string($isbn) === false) {
+            throw new Exception('Invalid parameter type.');
+        }
+        
         //Verify ISBN-13 scheme
         $isbn = $this->hyphens->removeHyphens($isbn);
         if (strlen($isbn) != 13) {

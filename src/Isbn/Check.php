@@ -53,9 +53,14 @@ class Check
      *
      * @param string $isbn
      * @return boolean
+     * @throws Exception
     */
     public function is10($isbn)
     {
+        if(is_string($isbn) === false) {
+            throw new Exception('Invalid parameter type.');
+        }
+
         $isbn = $this->hyphens->removeHyphens($isbn);
         return (strlen($isbn) === 10);
     }
@@ -65,9 +70,14 @@ class Check
      *
      * @param string $isbn
      * @return boolean
+     * @throws Exception
     */
     public function is13($isbn)
     {
+        if(is_string($isbn) === false) {
+            throw new Exception('Invalid parameter type.');
+        }
+        
         $isbn = $this->hyphens->removeHyphens($isbn);
         return (strlen($isbn) === 13);
     }

@@ -38,9 +38,14 @@ class Translate
      *
      * @param string $isbn
      * @return string
+     * @throws Exception
     */
     public function to10($isbn)
     {
+        if(is_string($isbn) === false) {
+            throw new Exception('Invalid parameter type.');
+        }
+
         if (strlen($isbn) > 13) {
             $isbn = substr($isbn, 4, -1);
         } else {
@@ -55,9 +60,14 @@ class Translate
      *
      * @param string $isbn
      * @return string
+     * @throws Exception
     */
     public function to13($isbn)
     {
+        if(is_string($isbn) === false) {
+            throw new Exception('Invalid parameter type.');
+        }
+        
         $isbn = substr($isbn, 0, -1);
 
         if (strlen($isbn) > 9) {

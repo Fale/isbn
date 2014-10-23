@@ -34,9 +34,14 @@ class Hyphens
      *
      * @param string $isbn
      * @return string
+     * @throws Exception
     */
     public function removeHyphens($isbn)
     {
+        if(is_string($isbn) === false) {
+            throw new Exception('Invalid parameter type.');
+        }
+
         $isbn = str_replace(" ", "", $isbn);
         $isbn = str_replace("-", "", $isbn);
         return $isbn;
@@ -60,9 +65,15 @@ class Hyphens
      *
      * @param string $isbn
      * @param string $char
+     * @throws Exception
     */
     public function addHyphens($isbn, $char = "-")
     {
+        if(is_string($isbn) === false ||
+            is_string($char) === false) {
+            throw new Exception('Invalid parameter type.');
+        }
+        
         $this->isbn = $isbn;
         $this->isbnSplit = Array();
         
