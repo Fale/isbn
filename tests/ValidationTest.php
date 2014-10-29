@@ -18,6 +18,7 @@ class ValidationTest extends PHPUnit_Framework_TestCase
         $isbn = new Isbn\Isbn();
         $this->assertTrue($isbn->validation->isbn10('8881837188'));
         $this->assertTrue($isbn->validation->isbn10('888 18 3 7 1-88'));
+        $this->assertTrue($isbn->validation->isbn10('2-7605-1028-X'));
         $this->assertFalse($isbn->validation->isbn10('8881837187'));
         $this->assertFalse($isbn->validation->isbn10('888183718A'));
         $this->assertFalse($isbn->validation->isbn10('stringof10'));
