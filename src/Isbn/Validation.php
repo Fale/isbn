@@ -61,22 +61,27 @@ class Validation
      *
      * @param string $isbn
      * @return boolean
+     * @throws Exception
     */
     public function isbn10($isbn)
     {
+        if(is_string($isbn) === false) {
+            throw new Exception('Invalid parameter type.');
+        }
+
         //Verify ISBN-10 scheme
         $isbn = $this->hyphens->removeHyphens($isbn);
         if (strlen($isbn) != 10) {
             return false;
         }
-        if (preg_match("/\d{9}[0-9xX]/i",$isbn) == false) {
+        if (preg_match('/\d{9}[0-9xX]/i',$isbn) == false) {
             return false;
         }
 
         //Verify checksum
         $check = 0;
         for ($i = 0; $i < 10; $i++) {
-            if ($isbn[$i] === "X") {
+            if ($isbn[$i] === 'X') {
                 $check += 10 * intval(10 - $i);
             } else {
                 $check += intval($isbn[$i]) * intval(10 - $i);
@@ -90,15 +95,20 @@ class Validation
      *
      * @param string $isbn
      * @return boolean
+     * @throws Exception
     */
     public function isbn13($isbn)
     {
+        if(is_string($isbn) === false) {
+            throw new Exception('Invalid parameter type.');
+        }
+        
         //Verify ISBN-13 scheme
         $isbn = $this->hyphens->removeHyphens($isbn);
         if (strlen($isbn) != 13) {
             return false;
         }
-        if (preg_match("/\d{13}/i",$isbn) == false) {
+        if (preg_match('/\d{13}/i',$isbn) == false) {
             return false;
         }
 

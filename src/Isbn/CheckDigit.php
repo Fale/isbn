@@ -39,6 +39,10 @@ class CheckDigit
     */
     public function make($isbn)
     {
+        if(is_string($isbn) === false) {
+            throw new Exception('Invalid parameter type.');
+        }
+
         $isbn = $this->hyphens->removeHyphens($isbn);
         if (strlen($isbn) === 12 or strlen($isbn) === 13) {
             return $this->make13($isbn);
@@ -53,20 +57,25 @@ class CheckDigit
      * Calculate the check digit of the ISBN-10 $isbn.
      *
      * @param string $isbn
-     * @return boolean|string|int
+     * @return string|int
+     * @throws Exception
     */
     public function make10($isbn)
     {
+        if(is_string($isbn) === false) {
+            throw new Exception('Invalid parameter type.');
+        }
+
         //Verify length
         $isbnLength = strlen($isbn);
         if ($isbnLength < 9 or $isbnLength > 10) {
-            return false;
+            throw new Exception('Invalid ISBN-10 format.');
         }
 
         //Calculate check digit
         $check = 0;
         for ($i = 0; $i < 9; $i++) {
-            if ($isbn[$i] === "X") {
+            if ($isbn[$i] === 'X') {
                 $check += 10 * intval(10 - $i);
             } else {
                 $check += intval($isbn[$i]) * intval(10 - $i);
@@ -87,14 +96,19 @@ class CheckDigit
      * Calculate the check digit of the ISBN-13 $isbn
      *
      * @param string $isbn
-     * @return boolean|int
+     * @return int
+     * @throws Exception
     */
     public function make13($isbn)
     {
+        if(is_string($isbn) === false) {
+            throw new Exception('Invalid parameter type.');
+        }
+        
         //Verify length
         $isbnLength = strlen($isbn);
         if ($isbnLength < 12 or $isbnLength > 13) {
-            return false;
+            throw new Exception('Invalid ISBN-13 format.');
         }
 
         //Calculate check digit
