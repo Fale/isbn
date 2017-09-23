@@ -81,7 +81,7 @@ class Validation
         //Verify checksum
         $check = 0;
         for ($i = 0; $i < 10; $i++) {
-            if ($isbn[$i] === 'X') {
+            if (strtoupper($isbn[$i]) === 'X') {
                 $check += 10 * intval(10 - $i);
             } else {
                 $check += intval($isbn[$i]) * intval(10 - $i);
