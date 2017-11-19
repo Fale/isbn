@@ -68,6 +68,8 @@ class HyphensTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('99921-58-10-7', $isbn->hyphens->addHyphens('9992158107'));
         $this->assertEquals('978-988-00-3827-3', $isbn->hyphens->addHyphens('9789880038273'));
         $this->assertEquals('0-8044-2957-X', $isbn->hyphens->addHyphens('080442957X'));
+        $this->assertEquals('400-739606900-6', $isbn->hyphens->addHyphens('4007396069006'));
+        $this->assertEquals('978-3-03-550366-1', $isbn->hyphens->addHyphens('9783035503661'));
         $this->assertEquals('979 10 90636 07 1', $isbn->hyphens->addHyphens('9791090636071', ' '));
         $this->assertEquals('99921 58 10 7', $isbn->hyphens->addHyphens('9992158107', ' '));
         $this->assertEquals('978 988 00 3827 3', $isbn->hyphens->addHyphens('9789880038273', ' '));
