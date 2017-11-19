@@ -4,6 +4,9 @@ This library is develop to provide all tools needed to handle ISBN (both ISBN-10
 ## IMPORTANT NOTICE ##
 `dev-master` could be pretty different from the **3.x** version. If you want to stay with version **3.x**, please use `3.0.0` or `3.0.x-dev` or `3.x-dev`.
 
+## IMPORTANT NOTICE NUMBER 2 ##
+ISBN ranges change every so often. Data are right as of Wed, 15 Nov 2017 13:30:29 CET.
+
 ## Initialization ##
     $isbn = new Isbn\Isbn();
 
