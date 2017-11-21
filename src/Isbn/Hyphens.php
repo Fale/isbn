@@ -141,7 +141,7 @@ class Hyphens
     private function getRegistrationGroupElement()
     {
         if (isset($this->isbnSplit[0]) === false or $this->isbnSplit[0] === '978') {
-            $this->range(0, 5999999, 1, 1);
+            $this->range(      0, 5999999, 1, 1);
             $this->range(6000000, 6499999, 3, 1);
             $this->range(6500000, 6999999, 0, 1);
             $this->range(7000000, 7999999, 1, 1);
@@ -152,7 +152,7 @@ class Hyphens
         }
 
         if (isset($this->isbnSplit[0]) === true and $this->isbnSplit[0] === '979') {
-            $this->range(0, 999999, 0, 1);
+            $this->range(      0,  999999, 0, 1);
             $this->range(1000000, 1199999, 2, 1);
             $this->range(1200000, 9999999, 0, 1);
         }
