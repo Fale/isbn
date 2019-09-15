@@ -1,19 +1,19 @@
 <?php
 /**
- * Check Digit Test
+ * Check Digit Test.
  *
  * @author Fabio Alessandro Locati <fabiolocati@gmail.com>
  * @author linkkingjay <linkingjay@gmail.com>
  * @author Wenzel Pünter <wenzel@phelix.me>
  * @author Daniel Mejta <daniel@mejta.net>
+ *
  * @version 2.0.0
- * @package ISBN
-*/
+ */
 class CheckDigitTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test ISBN-10
-    */
+     * Test ISBN-10.
+     */
     public function testIsbn10()
     {
         $isbn = new Isbn\Isbn();
@@ -24,8 +24,8 @@ class CheckDigitTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test ISBN-13
-    */
+     * Test ISBN-13.
+     */
     public function testIsbn13()
     {
         $isbn = new Isbn\Isbn();
@@ -34,8 +34,8 @@ class CheckDigitTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test ISBN
-    */
+     * Test ISBN.
+     */
     public function testIsbn()
     {
         $isbn = new Isbn\Isbn();

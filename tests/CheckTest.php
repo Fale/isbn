@@ -1,18 +1,18 @@
 <?php
 /**
- * Check Test
+ * Check Test.
  *
  * @author Fabio Alessandro Locati <fabiolocati@gmail.com>
  * @author Wenzel Pünter <wenzel@phelix.me>
  * @author Daniel Mejta <daniel@mejta.net>
+ *
  * @version 2.0.0
- * @package ISBN
-*/
+ */
 class CheckTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test ISBN-10 Check
-    */
+     * Test ISBN-10 Check.
+     */
     public function testIs10()
     {
         $isbn = new Isbn\Isbn();
@@ -21,8 +21,8 @@ class CheckTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test ISBN-13 Check
-    */
+     * Test ISBN-13 Check.
+     */
     public function testIs13()
     {
         $isbn = new Isbn\Isbn();
@@ -31,8 +31,8 @@ class CheckTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test Identify
-    */
+     * Test Identify.
+     */
     public function testIdentify()
     {
         $isbn = new Isbn\Isbn();

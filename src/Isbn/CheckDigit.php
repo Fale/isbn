@@ -1,31 +1,32 @@
 <?php
 /**
- * Check Digit
+ * Check Digit.
  *
  * @author Fabio Alessandro Locati <fabiolocati@gmail.com>
  * @author linkkingjay <linkingjay@gmail.com>
  * @author Wenzel Pünter <wenzel@phelix.me>
  * @author Daniel Mejta <daniel@mejta.net>
+ *
  * @version 2.0.0
- * @package ISBN
-*/
+ */
+
 namespace Isbn;
 
 /**
- * Check Digit
-*/
+ * Check Digit.
+ */
 class CheckDigit
 {
     /**
-     * Hyphens
-    */
+     * Hyphens.
+     */
     private $hyphens;
-    
+
     /**
-     * Constructor
+     * Constructor.
      *
      * @param Hyphens $hyphens
-    */
+     */
     public function __construct(Hyphens $hyphens)
     {
         $this->hyphens = $hyphens;
@@ -35,11 +36,12 @@ class CheckDigit
      * Calculate the check digit of $isbn.
      *
      * @param string $isbn
-     * @return boolean|string|int
-    */
+     *
+     * @return bool|string|int
+     */
     public function make($isbn)
     {
-        if(is_string($isbn) === false) {
+        if (is_string($isbn) === false) {
             throw new Exception('Invalid parameter type.');
         }
 
@@ -49,7 +51,7 @@ class CheckDigit
         } elseif (strlen($isbn) === 9 or strlen($isbn) === 10) {
             return $this->make10($isbn);
         }
-        
+
         return false;
     }
 
@@ -57,12 +59,14 @@ class CheckDigit
      * Calculate the check digit of the ISBN-10 $isbn.
      *
      * @param string $isbn
-     * @return string|int
+     *
      * @throws Exception
-    */
+     *
+     * @return string|int
+     */
     public function make10($isbn)
     {
-        if(is_string($isbn) === false) {
+        if (is_string($isbn) === false) {
             throw new Exception('Invalid parameter type.');
         }
 
@@ -88,23 +92,25 @@ class CheckDigit
         } elseif ($check === 11) {
             return 0;
         }
-        
+
         return $check;
     }
 
     /**
-     * Calculate the check digit of the ISBN-13 $isbn
+     * Calculate the check digit of the ISBN-13 $isbn.
      *
      * @param string $isbn
-     * @return int
+     *
      * @throws Exception
-    */
+     *
+     * @return int
+     */
     public function make13($isbn)
     {
-        if(is_string($isbn) === false) {
+        if (is_string($isbn) === false) {
             throw new Exception('Invalid parameter type.');
         }
-        
+
         //Verify length
         $isbnLength = strlen($isbn);
         if ($isbnLength < 12 or $isbnLength > 13) {
@@ -125,7 +131,7 @@ class CheckDigit
         if ($check === 10) {
             return 0;
         }
-    
+
         return $check;
     }
 }

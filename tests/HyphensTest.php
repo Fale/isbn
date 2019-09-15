@@ -1,18 +1,18 @@
 <?php
 /**
- * Hyphens Test
+ * Hyphens Test.
  *
  * @author Fabio Alessandro Locati <fabiolocati@gmail.com>
  * @author Wenzel Pünter <wenzel@phelix.me>
  * @author Daniel Mejta <daniel@mejta.net>
+ *
  * @version 2.0.0
- * @package ISBN
-*/
+ */
 class HyphensTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test Remove Hyphens
-    */
+     * Test Remove Hyphens.
+     */
     public function testRemoveHyphens()
     {
         $isbn = new Isbn\Isbn();
@@ -42,8 +42,8 @@ class HyphensTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test Fix Hyphens
-    */
+     * Test Fix Hyphens.
+     */
     public function testFixHyphens()
     {
         $isbn = new Isbn\Isbn();
@@ -59,8 +59,8 @@ class HyphensTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test Add Hyphens
-    */
+     * Test Add Hyphens.
+     */
     public function testAddHyphens()
     {
         $isbn = new Isbn\Isbn();
