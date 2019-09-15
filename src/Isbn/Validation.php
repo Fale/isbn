@@ -72,26 +72,26 @@ class Validation
      */
     public function isbn10($isbn)
     {
-        if (is_string($isbn) === false) {
+        if (\is_string($isbn) === false) {
             throw new Exception('Invalid parameter type.');
         }
 
         //Verify ISBN-10 scheme
         $isbn = $this->hyphens->removeHyphens($isbn);
-        if (strlen($isbn) != 10) {
+        if (\strlen($isbn) != 10) {
             return false;
         }
-        if (preg_match('/\d{9}[0-9xX]/i', $isbn) == false) {
+        if (\preg_match('/\d{9}[0-9xX]/i', $isbn) == false) {
             return false;
         }
 
         //Verify checksum
         $check = 0;
         for ($i = 0; $i < 10; $i++) {
-            if (strtoupper($isbn[$i]) === 'X') {
-                $check += 10 * intval(10 - $i);
+            if (\strtoupper($isbn[$i]) === 'X') {
+                $check += 10 * \intval(10 - $i);
             } else {
-                $check += intval($isbn[$i]) * intval(10 - $i);
+                $check += \intval($isbn[$i]) * \intval(10 - $i);
             }
         }
 
@@ -109,26 +109,26 @@ class Validation
      */
     public function isbn13($isbn)
     {
-        if (is_string($isbn) === false) {
+        if (\is_string($isbn) === false) {
             throw new Exception('Invalid parameter type.');
         }
 
         //Verify ISBN-13 scheme
         $isbn = $this->hyphens->removeHyphens($isbn);
-        if (strlen($isbn) != 13) {
+        if (\strlen($isbn) != 13) {
             return false;
         }
-        if (preg_match('/\d{13}/i', $isbn) == false) {
+        if (\preg_match('/\d{13}/i', $isbn) == false) {
             return false;
         }
 
         //Verify checksum
         $check = 0;
         for ($i = 0; $i < 13; $i += 2) {
-            $check += substr($isbn, $i, 1);
+            $check += \substr($isbn, $i, 1);
         }
         for ($i = 1; $i < 12; $i += 2) {
-            $check += 3 * substr($isbn, $i, 1);
+            $check += 3 * \substr($isbn, $i, 1);
         }
 
         return $check % 10 === 0;

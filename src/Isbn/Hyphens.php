@@ -45,8 +45,8 @@ class Hyphens
             throw new Exception('Invalid parameter type.');
         }
 
-        $isbn = str_replace(' ', '', $isbn);
-        $isbn = str_replace('-', '', $isbn);
+        $isbn = \str_replace(' ', '', $isbn);
+        $isbn = \str_replace('-', '', $isbn);
 
         return $isbn;
     }
@@ -76,16 +76,16 @@ class Hyphens
      */
     public function addHyphens($isbn, $char = '-')
     {
-        if (is_string($isbn) === false ||
-            is_string($char) === false) {
+        if (\is_string($isbn) === false ||
+            \is_string($char) === false) {
             throw new Exception('Invalid parameter type.');
         }
 
         $this->isbn      = $isbn;
         $this->isbnSplit = [];
 
-        if (strlen($this->isbn) === 13) {
-            $this->isbnSplit[0] = substr($this->isbn, 0, 3);
+        if (\strlen($this->isbn) === 13) {
+            $this->isbnSplit[0] = \substr($this->isbn, 0, 3);
         }
 
         $this->getRegistrationGroupElement();
@@ -93,7 +93,7 @@ class Hyphens
         $this->getPublicationElement();
         $this->getCheckDigit();
 
-        return implode($char, $this->isbnSplit);
+        return \implode($char, $this->isbnSplit);
     }
 
     /**
@@ -112,9 +112,9 @@ class Hyphens
             return false;
         }
 
-        $val = substr($this->isbn, $this->parsed($p), $chars);
-        $min = substr($min, 0, $chars);
-        $max = substr($max, 0, $chars);
+        $val = \substr($this->isbn, $this->parsed($p), $chars);
+        $min = \substr($min, 0, $chars);
+        $max = \substr($max, 0, $chars);
 
         if ($val >= $min and $val <= $max) {
             $this->isbnSplit[$p] = $val;
@@ -137,7 +137,7 @@ class Hyphens
         $chars = 0;
         foreach ($this->isbnSplit as $key => $split) {
             if (isset($now) === false or $key < $now) {
-                $chars = $chars + strlen($split);
+                $chars = $chars + \strlen($split);
             }
         }
 
@@ -177,7 +177,7 @@ class Hyphens
     private function getRegistrantElement()
     {
         if (isset($this->isbnSplit[0]) === true) {
-            $soFar = implode('-', $this->isbnSplit);
+            $soFar = \implode('-', $this->isbnSplit);
         } else {
             $soFar = '978-' . $this->isbnSplit[1];
         }
@@ -1835,7 +1835,7 @@ class Hyphens
      */
     private function getPublicationElement()
     {
-        $this->isbnSplit[3] = substr($this->isbn, $this->parsed(), -1);
+        $this->isbnSplit[3] = \substr($this->isbn, $this->parsed(), -1);
     }
 
     /**
@@ -1843,6 +1843,6 @@ class Hyphens
      */
     private function getCheckDigit()
     {
-        $this->isbnSplit[4] = substr($this->isbn, -1);
+        $this->isbnSplit[4] = \substr($this->isbn, -1);
     }
 }

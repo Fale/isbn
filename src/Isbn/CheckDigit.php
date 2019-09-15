@@ -41,14 +41,14 @@ class CheckDigit
      */
     public function make($isbn)
     {
-        if (is_string($isbn) === false) {
+        if (\is_string($isbn) === false) {
             throw new Exception('Invalid parameter type.');
         }
 
         $isbn = $this->hyphens->removeHyphens($isbn);
-        if (strlen($isbn) === 12 or strlen($isbn) === 13) {
+        if (\strlen($isbn) === 12 or \strlen($isbn) === 13) {
             return $this->make13($isbn);
-        } elseif (strlen($isbn) === 9 or strlen($isbn) === 10) {
+        } elseif (\strlen($isbn) === 9 or \strlen($isbn) === 10) {
             return $this->make10($isbn);
         }
 
@@ -66,12 +66,12 @@ class CheckDigit
      */
     public function make10($isbn)
     {
-        if (is_string($isbn) === false) {
+        if (\is_string($isbn) === false) {
             throw new Exception('Invalid parameter type.');
         }
 
         //Verify length
-        $isbnLength = strlen($isbn);
+        $isbnLength = \strlen($isbn);
         if ($isbnLength < 9 or $isbnLength > 10) {
             throw new Exception('Invalid ISBN-10 format.');
         }
@@ -80,9 +80,9 @@ class CheckDigit
         $check = 0;
         for ($i = 0; $i < 9; $i++) {
             if ($isbn[$i] === 'X') {
-                $check += 10 * intval(10 - $i);
+                $check += 10 * \intval(10 - $i);
             } else {
-                $check += intval($isbn[$i]) * intval(10 - $i);
+                $check += \intval($isbn[$i]) * \intval(10 - $i);
             }
         }
 
@@ -107,12 +107,12 @@ class CheckDigit
      */
     public function make13($isbn)
     {
-        if (is_string($isbn) === false) {
+        if (\is_string($isbn) === false) {
             throw new Exception('Invalid parameter type.');
         }
 
         //Verify length
-        $isbnLength = strlen($isbn);
+        $isbnLength = \strlen($isbn);
         if ($isbnLength < 12 or $isbnLength > 13) {
             throw new Exception('Invalid ISBN-13 format.');
         }
@@ -120,11 +120,11 @@ class CheckDigit
         //Calculate check digit
         $check = 0;
         for ($i = 0; $i < 12; $i += 2) {
-            $check += substr($isbn, $i, 1);
+            $check += \substr($isbn, $i, 1);
         }
 
         for ($i = 1; $i < 12; $i += 2) {
-            $check += 3 * substr($isbn, $i, 1);
+            $check += 3 * \substr($isbn, $i, 1);
         }
 
         $check = 10 - $check % 10;

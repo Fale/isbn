@@ -61,13 +61,13 @@ class Check
      */
     public function is10($isbn)
     {
-        if (is_string($isbn) === false) {
+        if (\is_string($isbn) === false) {
             throw new Exception('Invalid parameter type.');
         }
 
         $isbn = $this->hyphens->removeHyphens($isbn);
 
-        return strlen($isbn) === 10;
+        return \strlen($isbn) === 10;
     }
 
     /**
@@ -81,12 +81,12 @@ class Check
      */
     public function is13($isbn)
     {
-        if (is_string($isbn) === false) {
+        if (\is_string($isbn) === false) {
             throw new Exception('Invalid parameter type.');
         }
 
         $isbn = $this->hyphens->removeHyphens($isbn);
 
-        return strlen($isbn) === 13;
+        return \strlen($isbn) === 13;
     }
 }

@@ -45,14 +45,14 @@ class Translate
      */
     public function to10($isbn)
     {
-        if (is_string($isbn) === false) {
+        if (\is_string($isbn) === false) {
             throw new Exception('Invalid parameter type.');
         }
 
-        if (strlen($isbn) > 13) {
-            $isbn = substr($isbn, 4, -1);
+        if (\strlen($isbn) > 13) {
+            $isbn = \substr($isbn, 4, -1);
         } else {
-            $isbn = substr($isbn, 3, -1);
+            $isbn = \substr($isbn, 3, -1);
         }
 
         return $isbn . $this->checkDigit->make($isbn);
@@ -69,13 +69,13 @@ class Translate
      */
     public function to13($isbn)
     {
-        if (is_string($isbn) === false) {
+        if (\is_string($isbn) === false) {
             throw new Exception('Invalid parameter type.');
         }
 
-        $isbn = substr($isbn, 0, -1);
+        $isbn = \substr($isbn, 0, -1);
 
-        if (strlen($isbn) > 9) {
+        if (\strlen($isbn) > 9) {
             $isbn = '978-' . $isbn;
         } else {
             $isbn = '978' . $isbn;
