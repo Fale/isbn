@@ -8,7 +8,7 @@
  *
  * @version 2.0.0
  */
-class HyphensTest extends PHPUnit_Framework_TestCase
+class HyphensTest extends PHPUnit\Framework\TestCase
 {
     /**
      * Test Remove Hyphens.

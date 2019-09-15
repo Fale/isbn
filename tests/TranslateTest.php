@@ -9,7 +9,7 @@
  *
  * @version 2.0.0
  */
-class TranslateTest extends PHPUnit_Framework_TestCase
+class TranslateTest extends PHPUnit\Framework\TestCase
 {
     /**
      * Test Convert To ISBN-13.

@@ -9,7 +9,7 @@
  *
  * @version 2.0.0
  */
-class CheckDigitTest extends PHPUnit_Framework_TestCase
+class CheckDigitTest extends PHPUnit\Framework\TestCase
 {
     /**
      * Test ISBN-10.

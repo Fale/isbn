@@ -8,7 +8,7 @@
  *
  * @version 2.0.0
  */
-class CheckTest extends PHPUnit_Framework_TestCase
+class CheckTest extends PHPUnit\Framework\TestCase
 {
     /**
      * Test ISBN-10 Check.
