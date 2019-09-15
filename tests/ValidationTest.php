@@ -1,18 +1,18 @@
 <?php
 /**
- * Validation Test
+ * Validation Test.
  *
  * @author Fabio Alessandro Locati <fabiolocati@gmail.com>
  * @author Wenzel Pünter <wenzel@phelix.me>
  * @author Daniel Mejta <daniel@mejta.net>
+ *
  * @version 2.0.0
- * @package ISBN
-*/
-class ValidationTest extends PHPUnit_Framework_TestCase
+ */
+class ValidationTest extends PHPUnit\Framework\TestCase
 {
     /**
-     * Test ISBN-10 Validation
-    */
+     * Test ISBN-10 Validation.
+     */
     public function testIsbn10()
     {
         $isbn = new Isbn\Isbn();
@@ -25,8 +25,8 @@ class ValidationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test ISBN-13 Validation
-    */
+     * Test ISBN-13 Validation.
+     */
     public function testIsbn13()
     {
         $isbn = new Isbn\Isbn();
@@ -36,8 +36,8 @@ class ValidationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test ISBN Validation
-    */
+     * Test ISBN Validation.
+     */
     public function testIsbn()
     {
         $isbn = new Isbn\Isbn();
@@ -48,5 +48,4 @@ class ValidationTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($isbn->validation->isbn('97888895271910'));
         $this->assertFalse($isbn->validation->isbn('biopsychology'));
     }
-
 }

@@ -1,19 +1,19 @@
 <?php
 /**
- * Translate Test
+ * Translate Test.
  *
  * @author Fabio Alessandro Locati <fabiolocati@gmail.com>
  * @author linkkingjay <linkingjay@gmail.com>
  * @author Wenzel Pünter <wenzel@phelix.me>
  * @author Daniel Mejta <daniel@mejta.net>
+ *
  * @version 2.0.0
- * @package ISBN
-*/
-class TranslateTest extends PHPUnit_Framework_TestCase
+ */
+class TranslateTest extends PHPUnit\Framework\TestCase
 {
     /**
-     * Test Convert To ISBN-13
-    */
+     * Test Convert To ISBN-13.
+     */
     public function testTo13()
     {
         $isbn = new Isbn\Isbn();
@@ -21,8 +21,8 @@ class TranslateTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test Convert To ISBN-10
-    */
+     * Test Convert To ISBN-10.
+     */
     public function testTo10()
     {
         $isbn = new Isbn\Isbn();
@@ -30,8 +30,8 @@ class TranslateTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test Convert to ISBN-13 With Hyphens
-    */
+     * Test Convert to ISBN-13 With Hyphens.
+     */
     public function testTo13WithHyphens()
     {
         $isbn = new Isbn\Isbn();
@@ -39,8 +39,8 @@ class TranslateTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test Convert To ISBN-10 With Hypens
-    */
+     * Test Convert To ISBN-10 With Hypens.
+     */
     public function testTo10WithHyphens()
     {
         $isbn = new Isbn\Isbn();
