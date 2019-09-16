@@ -98,6 +98,13 @@ $isbn->translate->to10('9786028328227'); // Will return 6028328227
 # Develop this library #
 If you are interested in some new features please open a bug on GitHub. If you already have a patch available, please, open a pull request. Before opening a pull request, be sure that all tests are passed.
 
+## Generation ##
+
+* Get the `RangeMessage.xml` file from https://www.isbn-international.org/range_file_generation
+* `cp import/RegistrantElement.php /tmp`
+* `cp RangeMessage.xml /tmp`
+* `podman run --rm -it --volume /tmp:/tmp php sh -c "cd /tmp && php RegistrantElement.php" > /tmp/out`
+
 ## Tests ##
 To check the tests run the following:
 
